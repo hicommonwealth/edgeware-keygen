@@ -1,0 +1,217 @@
+/*
+ * FONTS
+ */
+@font-face {
+    font-family: 'ibm-plex-sans-webfont';
+    font-weight: 400;
+    font-style: normal;
+    src: url('./fonts/woff/IBMPlexSans-Regular.woff') format('woff'),
+         url('./fonts/woff2/IBMPlexSans-Regular.woff2') format('woff2'),
+         url('./fonts/ttf/IBMPlexSans-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'ibm-plex-sans-webfont';
+    font-weight: 400;
+    font-style: italic;
+    src: url('./fonts/woff/IBMPlexSans-Italic.woff') format('woff'),
+         url('./fonts/woff2/IBMPlexSans-Italic.woff2') format('woff2'),
+         url('./fonts/ttf/IBMPlexSans-Italic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'ibm-plex-sans-webfont';
+    font-weight: 500;
+    font-style: normal;
+    src: url('./fonts/woff/IBMPlexSans-Medium.woff') format('woff'),
+         url('./fonts/woff2/IBMPlexSans-Medium.woff2') format('woff2'),
+         url('./fonts/ttf/IBMPlexSans-Medium.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'ibm-plex-sans-webfont';
+    font-weight: 500;
+    font-style: italic;
+    src: url('./fonts/woff/IBMPlexSans-MediumItalic.woff') format('woff'),
+         url('./fonts/woff2/IBMPlexSans-MediumItalic.woff2') format('woff2'),
+         url('./fonts/ttf/IBMPlexSans-MediumItalic.ttf') format('truetype');
+}
+
+/*
+ * GLOBALS
+ */
+* {
+    box-sizing: border-box;
+}
+body {
+    font-size: 17px;
+    line-height: 1.45;
+    font-weight: 400;
+    font-family: ibm-plex-sans-webfont, sans-serif;
+    color: #222;
+}
+h1, h2, h3, h4 {
+    line-height: 1.15;
+}
+h2 {
+    font-size: 24px;
+    font-weight: 500;
+}
+h3 {
+    margin-top: 30px;
+}
+h4 {
+    margin-top: 50px;
+    margin-bottom: 6px;
+}
+p {
+    color: #aaa;
+}
+hr {
+    border-top: none;
+    border-bottom: 1px solid #ececec;
+    margin: 50px 0;
+}
+p {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+a {
+    color: #111;
+}
+li {
+    margin: 12px 0;
+}
+pre, code {
+    font: 14.5px SF Mono, Roboto, Menlo, monospace;
+    line-height: 1.3;
+    background: #444;
+    color: #fff;
+    border-radius: 4px;
+}
+pre {
+    width: initial;
+    min-width: none;
+    padding: 14px 20px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+code {
+    padding: 4px 6px;
+    margin: 0 4px;
+}
+.button-text {
+    display: inline-block;
+    color: #aaa;
+    font-size: 18px;
+    margin-top: 30px;
+}
+input.ss58-address,
+input[type="text"],
+input[type="email"] {
+    height: 42px;
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding-left: 14px;
+}
+input.ss58-address:not([readonly]):focus,
+input[type="text"]:not([readonly]):focus,
+input[type="email"]:not([readonly]):focus{
+    border-color: #08c;
+}
+::placeholder {
+    color: #bbb;
+}
+button,
+input[type="submit"] {
+    background: #e7e7e7;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    border-radius: 4px;
+    color: #111;
+    height: 42px;
+    padding: 8px 20px 8px;
+    line-height: 1;
+}
+button:active,
+input[type="submit"]:active {
+    background: #ddd;
+}
+
+/*
+ * PAGE LAYOUT
+ */
+.header {
+    background-image: url("./header.png");
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 40px 0;
+    font-size: 22px;
+}
+
+.footer {
+    background: #333;
+    padding: 20px 0 25px;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 50px;
+}
+.footer,
+.footer a {
+    color: #fff;
+}
+.container {
+    margin: 0 auto;
+    max-width: 950px;
+    padding: 0 20px;
+}
+.container.body-container {
+    margin: 40px auto 80px;
+}
+input.ss58-address,
+input[type="text"] {
+    width: 100%;
+    margin: 6px 0;
+}
+button {
+    margin: 10px 0;
+}
+
+/*
+ * COMPONENTS
+ */
+.wallet-explanation {
+    margin: 40px 0;
+    padding: 16px 22px;
+    background: #eee;
+    border-radius: 6px;
+}
+
+/*
+ * RESPONSIVE STYLES
+ */
+@media (max-width: 1000px) {
+    .container {
+        max-width: 800px;
+    }
+}
+@media (max-width: 880px) {
+    .wallet-explanation {
+        margin: 20px 0;
+    }
+    .container {
+        max-width: 640px;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+    .container.body-container {
+        margin: 20px 0;
+    }
+}
+@media (max-width: 680px) {
+    .container {
+        max-width: 100%;
+    }
+}
