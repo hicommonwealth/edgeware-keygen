@@ -32,7 +32,10 @@
         <button class="generate-keypair">Generate</button>
         <pre class="generated-account" style="display: none;">Phrase `<span class="generated-phrase"></span>` is account:
 Public key (hex): <span class="generated-publickey" ></span></pre>
-
+        <div class="generated-account" style="display: none;">
+          <p >You've generated an public key and mnemonic. Save the mnemonic to a secure, offline location! Remember, we don't store your mnemonic. If you don't remember your mnemonic, you won't be able to claim your EDG. Now, let's go back to the lockdrop page.</p>
+          <a href="https://edgewa.re/lockdrop/" target="_blank"><button>Back to Lockdrop Page</button></a>
+        </div>
         <hr>
 
         <div class="hidden">
@@ -45,6 +48,10 @@ Public key (hex): <span class="generated-publickey" ></span></pre>
           <button class="ss58-convert">Convert</button>
           <pre class="converted-account" style="display: none;">Address <span class="converted-address"></span> corresponds to public key:
 <span class="converted-publickey"></span></pre>
+          <div class="converted-account" style="display: none;">
+            <p >You've now gotten your an address to a public key. Now, we can go back to the lockdrop page.</p>
+            <a href="https://edgewa.re/lockdrop/" target="_blank"><button>Back to Lockdrop Page</button></a>
+          </div>
         </div>
       </div>
     </div>
