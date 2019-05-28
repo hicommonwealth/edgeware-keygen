@@ -22,7 +22,7 @@ $('.generate-keypair').click((e) => {
 $('.ss58-convert').click((e) => {
   let publickey;
   const address = '' + $('.ss58-address').val();
-  const keyring = new Keyring({ type: 'sr25519' });
+  const keyring = new Keyring();
   try {
     keyring.addFromAddress(address);
     publickey = '' + u8aToHex(keyring.getPublicKeys()[0]);
