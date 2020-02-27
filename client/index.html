@@ -34,13 +34,16 @@
         </noscript>
       </div>
       <div>
+        <!-- generate keypair tool -->
         <h4>Generate keypair</h4>
         <p>
           Click generate to get a new public/private key pair.
         </p>
         <button class="generate-keypair">Generate</button>
         <pre class="generated-account" style="display: none;">Phrase `<span class="generated-phrase"></span>` is account:
-Public key (hex): <span class="generated-publickey" ></span></pre>
+Public key (hex): <span class="generated-publickey" ></span>
+Testnet address (SS58): <span class="generated-testnet-ss58" ></span>
+Mainnet address (SS58): <span class="generated-mainnet-ss58" ></span> </pre>
         <div class="generated-account" style="display: none;">
           <p>
             You've generated a public key and mnemonic. Save the
@@ -52,10 +55,11 @@ Public key (hex): <span class="generated-publickey" ></span></pre>
         </div>
         <hr>
 
+        <!-- address to pkey tool -->
         <div class="hidden">
-          <h4>Convert testnet address to public key</h4>
+          <h4>Convert address to public key</h4>
           <p>
-            If you have a you have a testnet EDG address (e.g. 5G7Agn...),
+            If you have a testnet EDG address (e.g. 5G7Agn...),
             you can use this tool to convert it into a public key.
           </p>
           <input class="ss58-address" type="text" placeholder="Testnet EDG Address (e.g. 5G7Agn...)"/>
@@ -69,6 +73,21 @@ Public key (hex): <span class="generated-publickey" ></span></pre>
             </p>
             <a href="https://edgewa.re/lockdrop/" target="_blank">Back to lockdrop page &rsaquo;</a>
           </div>
+        </div>
+        <hr>
+
+        <!-- pkey to address tool -->
+        <div class="hidden">
+          <h4>Convert public key to address</h4>
+          <p>
+            If you have a public key (e.g. 0x1234...),
+            you can use this tool to convert it into an address.
+          </p>
+          <input class="pk-publickey" type="text" placeholder="Public key (e.g. 0x1234...)"/>
+          <button class="pk-convert">Convert</button>
+          <pre class="pk-converted-account" style="display: none;">Public key <span class="pk-converted-publickey"></span> is account:
+Testnet address (SS58): <span class="pk-converted-testnet-address"></span>
+Mainnet address (SS58): <span class="pk-converted-mainnet-address"></span> </pre>
         </div>
       </div>
     </div>
