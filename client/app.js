@@ -3,23 +3,30 @@ import 'styles.css';
 
 import * as $ from 'jquery';
 import { mnemonicGenerate, mnemonicValidate } from '@polkadot/util-crypto';
-import { u8aToHex, hexToU8a } from '@polkadot/util';
-import Keyring from '@polkadot/keyring';
+import { u8aToHex, hexToU8a, stringToU8a, u8aConcat } from '@polkadot/util';
+import { blake2AsU8a } from '@polkadot/util-crypto/blake2';
+import Keyring, { encodeAddress } from '@polkadot/keyring';
 import createPair from '@polkadot/keyring/pair';
 
 
-$('.generate-keypair').click((e) => {
-  const phrase = mnemonicGenerate();
-  const testnetKeyring = new Keyring({ type: 'sr25519' });
-  const testnetKeyringPair = testnetKeyring.addFromMnemonic(phrase);
-  const mainnetKeyring = new Keyring({ type: 'sr25519', ss58Format: 7 });
-  const mainnetKeyringPair = mainnetKeyring.addFromMnemonic(phrase);
+$('.evm-convert').click((e) => {
+  const evmAddress = '' + $('.evm-address').val();
 
-  $('.generated-account').show();
-  $('.generated-phrase').text(phrase);
-  $('.generated-publickey').text('' + u8aToHex(testnetKeyringPair.publicKey));
-  $('.generated-testnet-ss58').text(testnetKeyringPair.address);
-  $('.generated-mainnet-ss58').text(mainnetKeyringPair.address);
+  try {
+    const addr = hexToU8a(evmAddress);
+    const data = stringToU8a('evm:');
+    const res = blake2AsU8a(u8aConcat(data, addr));
+
+    const mainnetKeyring = new Keyring({ type: 'sr25519', ss58Format: 7 });
+    const mainnetPair = createPair({ toSS58: mainnetKeyring.encodeAddress, type: 'sr25519' }, { publicKey: res });
+    const convertedMainnetAddress = mainnetPair.address;
+
+    $('.evm-converted').show();
+    $('.evm-converted-address').text('' + convertedMainnetAddress);
+  } catch (e) {
+    alert('Invalid address!');
+    return;
+  }
 });
 
 $('.ss58-convert').click((e) => {
@@ -58,4 +65,18 @@ $('.pk-convert').click((e) => {
   $('.pk-converted-publickey').text(publickey);
   $('.pk-converted-testnet-address').text(testnetAddress);
   $('.pk-converted-mainnet-address').text(mainnetAddress);
+});
+
+$('.generate-keypair').click((e) => {
+  const phrase = mnemonicGenerate();
+  const testnetKeyring = new Keyring({ type: 'sr25519' });
+  const testnetKeyringPair = testnetKeyring.addFromMnemonic(phrase);
+  const mainnetKeyring = new Keyring({ type: 'sr25519', ss58Format: 7 });
+  const mainnetKeyringPair = mainnetKeyring.addFromMnemonic(phrase);
+
+  $('.generated-account').show();
+  $('.generated-phrase').text(phrase);
+  $('.generated-publickey').text('' + u8aToHex(testnetKeyringPair.publicKey));
+  $('.generated-testnet-ss58').text(testnetKeyringPair.address);
+  $('.generated-mainnet-ss58').text(mainnetKeyringPair.address);
 });

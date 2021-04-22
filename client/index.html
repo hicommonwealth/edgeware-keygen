@@ -23,21 +23,70 @@
       </div>
     </div>
     <div class="container body-container">
-      <div class="wallet-explanation">
-        This page generates public/private keypairs, which you can use
-        to receive EDG from the Edgeware lockdrop. <br/><em>Note: The preferred
-        way to generate a private key is using the command line, on an
-        air-gapped computer.</em>
-        <noscript>
+      <noscript>
+        <div class="wallet-explanation">
           <br/>
           This page requires JavaScript.
-        </noscript>
-      </div>
+        </div>
+      </noscript>
       <div>
+        <!-- address to eth address tool -->
+        <div class="hidden">
+          <h4>Convert Metamask/EVM address to mainnet address</h4>
+          <p>
+            If you have an Metamask EVM address (e.g. 0x1234...),
+            you can use this tool to convert it into a mainnet address (e.g. i76Ux...) to use with polkadot-js.
+          </p>
+          <input class="evm-address" type="text" placeholder="EVM Address (e.g. 0x1234...)"/>
+          <button class="evm-convert">Convert</button>
+          <pre class="evm-converted" style="display: none;"><span class="evm-converted-address"></span></pre>
+        </div>
+        <hr>
+
+        <!-- address to pkey tool -->
+        <div class="hidden">
+          <h4>Convert address to public key</h4>
+          <p>
+            If you have a testnet EDG address (5G7Agn...),
+            you can use this tool to convert it into a public key (0x1234...).
+          </p>
+          <input class="ss58-address" type="text" placeholder="Testnet EDG Address (e.g. 5G7Agn...)"/>
+          <button class="ss58-convert">Convert</button>
+          <pre class="converted-account" style="display: none;">Address <span class="converted-address"></span> corresponds to public key:
+<span class="converted-publickey"></span></pre>
+          <div class="converted-account" style="display: none;">
+            <p>
+              You've converted your address to a public key.
+            </p>
+            <a href="https://edgewa.re/lockdrop/" target="_blank">Back to lockdrop page &rsaquo;</a>
+          </div>
+        </div>
+        <hr>
+
+        <!-- pkey to address tool -->
+        <div class="hidden">
+          <h4>Convert public key to address</h4>
+          <p>
+            If you have a public key (0x1234...),
+            you can use this tool to convert it into a mainnet/testnet address.
+          </p>
+          <input class="pk-publickey" type="text" placeholder="Public key (e.g. 0x1234...)"/>
+          <button class="pk-convert">Convert</button>
+          <pre class="pk-converted-account" style="display: none;">Public key <span class="pk-converted-publickey"></span> is account:
+Testnet address (SS58): <span class="pk-converted-testnet-address"></span>
+Mainnet address (SS58): <span class="pk-converted-mainnet-address"></span> </pre>
+        </div>
+        <hr>
+
         <!-- generate keypair tool -->
         <h4>Generate keypair</h4>
         <p>
           Click generate to get a new public/private key pair.
+          <em>
+            This is insecure. The preferred way to generate a
+            private key is using the command line or polkadot-js, on
+            an air-gapped computer.
+          </em>
         </p>
         <button class="generate-keypair">Generate</button>
         <pre class="generated-account" style="display: none;">Phrase `<span class="generated-phrase"></span>` is account:
@@ -52,42 +101,6 @@ Mainnet address (SS58): <span class="generated-mainnet-ss58" ></span> </pre>
             EDG.
           </p>
           <a href="https://edgewa.re/lockdrop/" target="_blank">Back to lockdrop page &rsaquo;</a>
-        </div>
-        <hr>
-
-        <!-- address to pkey tool -->
-        <div class="hidden">
-          <h4>Convert address to public key</h4>
-          <p>
-            If you have a testnet EDG address (e.g. 5G7Agn...),
-            you can use this tool to convert it into a public key.
-          </p>
-          <input class="ss58-address" type="text" placeholder="Testnet EDG Address (e.g. 5G7Agn...)"/>
-          <button class="ss58-convert">Convert</button>
-          <pre class="converted-account" style="display: none;">Address <span class="converted-address"></span> corresponds to public key:
-<span class="converted-publickey"></span></pre>
-          <div class="converted-account" style="display: none;">
-            <p>
-              You've converted your address to a public key. Now, go
-              back to the lockdrop page:
-            </p>
-            <a href="https://edgewa.re/lockdrop/" target="_blank">Back to lockdrop page &rsaquo;</a>
-          </div>
-        </div>
-        <hr>
-
-        <!-- pkey to address tool -->
-        <div class="hidden">
-          <h4>Convert public key to address</h4>
-          <p>
-            If you have a public key (e.g. 0x1234...),
-            you can use this tool to convert it into an address.
-          </p>
-          <input class="pk-publickey" type="text" placeholder="Public key (e.g. 0x1234...)"/>
-          <button class="pk-convert">Convert</button>
-          <pre class="pk-converted-account" style="display: none;">Public key <span class="pk-converted-publickey"></span> is account:
-Testnet address (SS58): <span class="pk-converted-testnet-address"></span>
-Mainnet address (SS58): <span class="pk-converted-mainnet-address"></span> </pre>
         </div>
       </div>
     </div>
