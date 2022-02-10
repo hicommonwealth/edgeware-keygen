@@ -37,7 +37,7 @@
     "mini-css-extract-plugin": "^0.4.4",
     "moment": "^2.23.0",
     "moment-twitter": "^0.2.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "nodemon": "^1.18.10",
     "nprogress": "^0.2.0",
     "sass-loader": "^7.1.0",
